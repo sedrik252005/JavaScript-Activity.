@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Destructuring</title>
+</head>
+<body>
+  <h1>Weather Info</h1>
+  <pre id="weatherOutput"></pre>
 
+  <script>
+    const fakeData = {
+      location: { name: "Manila" },
+      current: {
+        temp_c: 30,
+        condition: {
+          text: "Partly Cloudy",
+        },
+      },
+    };
+
+    const {
+      location: { name },
+      current: {
+        temp_c,
+        condition: { text },
+      },
+    } = fakeData;
+
+    const output = `Weather in ${name}: ${temp_c}°C and ${text}`;
+    console.log(output);
+    document.getElementById("weatherOutput").innerText = output;
+  </script>
+</body>
+</html>
