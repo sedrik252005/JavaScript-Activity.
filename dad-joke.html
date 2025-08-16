@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dad Joke Fetcher</title>
+</head>
+<body>
+  <button id="loadJoke">Get Joke</button>
+  <p id="jokeResult"></p>
+
+  <script>
+    document.getElementById("loadJoke").addEventListener("click", async () => {
+      const res = await fetch("https://icanhazdadjoke.com/", {
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      const data = await res.json();
+      document.getElementById("jokeResult").innerText = data.joke;
+    });
+  </script>
+</body>
+</html>
